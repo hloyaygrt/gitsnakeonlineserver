@@ -49,9 +49,10 @@ function try_pair() {
 io.on('connection', function (socket) {
     console.log('one user connected ' + socket.id);
 
-    // socket.on('chat message', function (data) {
-    //     io.emit('chat message', socket.id + ' ' + data)
-    // });
+    socket.on('chat message', function (data) {
+        io.emit('chat message', socket.id + ' ' + data)
+    });
+    
     socket.on('find game', function () {
         console.log('snake ' + socket.id + ' waiting for opponent');
         waitingPlayers.push(socket.id);
