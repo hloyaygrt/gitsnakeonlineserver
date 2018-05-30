@@ -52,7 +52,7 @@ io.on('connection', function (socket) {
     socket.on('chat message', function (data) {
         io.emit('chat message', socket.id + ' ' + data)
     });
-    
+
     socket.on('find game', function () {
         console.log('snake ' + socket.id + ' waiting for opponent');
         waitingPlayers.push(socket.id);
